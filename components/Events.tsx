@@ -22,7 +22,7 @@ const events = [
   {
     cls:"puja", icon:"fas fa-om", name:"Satyanarayan Puja",
     date:"Tuesday, April 21, 2026", dateSub:"Post-Wedding Puja",
-    time:"10:00 AM onwards", venue:"Shri Laxmashi Nappu Hall, Matunga", venueSub:"",
+    time:"10:00 AM onwards", venue:"At the Groom's Residence", venueSub:"",
     dress:"Traditional / Casual Ethnic",
   },
 ];

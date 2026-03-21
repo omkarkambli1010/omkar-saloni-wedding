@@ -11,7 +11,6 @@ import Story from "@/components/Story";
 import Events from "@/components/Events";
 import Venue from "@/components/Venue";
 import Gallery from "@/components/Gallery";
-import RSVP from "@/components/RSVP";
 import Wishes from "@/components/Wishes";
 import Share from "@/components/Share";
 import Footer from "@/components/Footer";
@@ -33,7 +32,6 @@ export default function Home() {
         <Events />
         <Venue />
         <Gallery />
-        <RSVP />
         <Wishes />
         <Share />
       </main>

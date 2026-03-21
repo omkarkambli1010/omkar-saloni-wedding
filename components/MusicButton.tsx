@@ -8,10 +8,7 @@ export default function MusicButton() {
   function toggle() {
     const a = audioRef.current;
     if (!a) return;
-    if (!a.src || a.src === window.location.href) {
-      alert("To enable music, add a music file and update the src in MusicButton.tsx");
-      return;
-    }
+    if (!a.src || a.src === window.location.href) return;
     if (playing) { a.pause(); setPlaying(false); }
     else { a.play().catch(()=>{}); setPlaying(true); }
   }
@@ -19,7 +16,7 @@ export default function MusicButton() {
   return (
     <>
       <audio ref={audioRef} loop>
-        {/* <source src="/music/wedding.mp3" type="audio/mpeg" /> */}
+        <source src="/music/aaj-sajeya.mp3" type="audio/mpeg" />
       </audio>
       <button
         className={`music-btn visible${playing ? " playing" : ""}`}

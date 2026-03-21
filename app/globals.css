@@ -160,6 +160,35 @@ a { text-decoration: none; color: inherit; }
 .open-btn span { position:relative; z-index:1; }
 
 /* ============================================================
+   ROYAL NAV LOGO
+============================================================ */
+.royal-logo {
+  display:flex; flex-direction:column; align-items:center;
+  text-decoration:none; gap:1px; line-height:1;
+}
+.royal-logo-crown {
+  font-size:0.65rem; letter-spacing:0.3em;
+  font-family:var(--font-cormorant),serif;
+  text-transform:uppercase; opacity:0.8;
+  color:var(--gold); transition:color 0.4s;
+}
+.royal-logo-names {
+  font-family:var(--font-great-vibes),cursive;
+  font-size:1.9rem; line-height:1;
+  color:rgba(255,255,255,0.95); transition:color 0.4s;
+}
+.royal-logo-sep { color:var(--gold); font-size:0.55em; margin:0 0.1em; }
+.royal-logo-tagline {
+  font-size:0.5rem; letter-spacing:0.4em;
+  font-family:var(--font-cormorant),serif;
+  text-transform:uppercase; opacity:0.65;
+  color:rgba(255,255,255,0.8); transition:color 0.4s;
+}
+.navbar.scrolled .royal-logo-names { color:var(--maroon); }
+.navbar.scrolled .royal-logo-crown { color:var(--gold-dark); }
+.navbar.scrolled .royal-logo-tagline { color:var(--text-light); }
+
+/* ============================================================
    PETALS
 ============================================================ */
 #petals { position:fixed; inset:0; pointer-events:none; z-index:1; overflow:hidden; }

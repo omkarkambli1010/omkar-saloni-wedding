@@ -1,12 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Props { onOpen: () => void; }
 
 export default function OpeningScreen({ onOpen }: Props) {
   const [closing, setClosing] = useState(false);
 
+  // Lock body scroll while opening screen is visible
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
   function handleOpen() {
+    // Instantly jump to top before the overlay fades out
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    document.body.style.overflow = "";
     setClosing(true);
     setTimeout(onOpen, 900);
   }

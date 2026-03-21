@@ -22,7 +22,7 @@ export default function Couple() {
               <div className="person-family" style={{ fontFamily:"var(--font-cormorant)" }}>
                 <p><strong>Son of</strong></p>
                 <p>Shri. Rajan Madhukar Kambli</p>
-                <p>&amp; Sau. Ruvali Rajan Kambli</p>
+                <p>&amp; Sau. Rushali Rajan Kambli</p>
                 <br />
                 <p style={{ fontSize:"0.85rem" }}><em>Grandson of Late. Madhukar Anant Kambli<br />&amp; Late. Malati Madhukar Kambli</em></p>
                 <br />

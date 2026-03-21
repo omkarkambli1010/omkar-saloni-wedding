@@ -16,13 +16,16 @@ export default function Navbar() {
     { href: "#events",  label: "Events" },
     { href: "#venue",   label: "Venue" },
     { href: "#gallery", label: "Gallery" },
-    { href: "#rsvp",    label: "RSVP" },
     { href: "#wishes",  label: "Wishes" },
   ];
 
   return (
     <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
-      <a href="#hero" className="nav-logo" style={{ fontFamily:"var(--font-great-vibes)" }}>O ❋ S</a>
+      <a href="#hero" className="nav-logo royal-logo">
+        <span className="royal-logo-crown">♛ Est. 2026 ♛</span>
+        <span className="royal-logo-names">Omkar <span className="royal-logo-sep">✦</span> Saloni</span>
+        <span className="royal-logo-tagline">— Together Forever —</span>
+      </a>
       <ul className={`nav-links${open ? " open" : ""}`}>
         {links.map((l) => (
           <li key={l.href}>
