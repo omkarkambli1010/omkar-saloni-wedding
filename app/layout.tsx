@@ -20,13 +20,11 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Omkar & Saloni Wedding",
     locale: "en_IN",
-    images: [{ url: `${SITE_URL}/images/omkar.jpeg`, alt: "Omkar Kambli — Groom" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Omkar & Saloni Wedding Invitation | April 19, 2026",
     description: "Join us to celebrate our wedding — Sunday, April 19, 2026 · Matunga, Mumbai.",
-    images: [`${SITE_URL}/images/omkar.jpeg`],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: SITE_URL },
