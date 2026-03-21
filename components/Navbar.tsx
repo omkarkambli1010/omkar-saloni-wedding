@@ -16,8 +16,6 @@ export default function Navbar() {
     { href: "#story",   label: "Story" },
     { href: "#events",  label: "Events" },
     { href: "#venue",   label: "Venue" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#wishes",  label: "Wishes" },
   ];
 
   return (

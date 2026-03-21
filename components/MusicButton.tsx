@@ -1,16 +1,32 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function MusicButton() {
-  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  function toggle() {
+  // Autoplay as soon as component mounts (fires after user taps "Open Invitation")
+  useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
-    if (!a.src || a.src === window.location.href) return;
-    if (playing) { a.pause(); setPlaying(false); }
-    else { a.play().catch(()=>{}); setPlaying(true); }
+    a.volume = 0.55;
+    a.play().catch(() => {
+      // Autoplay blocked — user can tap the button manually
+    });
+  }, []);
+
+  function toggleMute() {
+    const a = audioRef.current;
+    if (!a) return;
+    if (muted) {
+      a.muted = false;
+      // If it was paused due to a previous block, try resuming
+      if (a.paused) a.play().catch(() => {});
+      setMuted(false);
+    } else {
+      a.muted = true;
+      setMuted(true);
+    }
   }
 
   return (
@@ -19,12 +35,12 @@ export default function MusicButton() {
         <source src="/music/aaj-sajeya.mp3" type="audio/mpeg" />
       </audio>
       <button
-        className={`music-btn visible${playing ? " playing" : ""}`}
-        onClick={toggle}
-        title="Toggle Music"
-        aria-label="Toggle background music"
+        className={`music-btn visible${muted ? "" : " playing"}`}
+        onClick={toggleMute}
+        title={muted ? "Unmute Music" : "Mute Music"}
+        aria-label={muted ? "Unmute background music" : "Mute background music"}
       >
-        <i className={playing ? "fas fa-pause" : "fas fa-music"} />
+        <i className={muted ? "fas fa-volume-xmark" : "fas fa-volume-high"} />
       </button>
     </>
   );
