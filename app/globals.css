@@ -270,10 +270,10 @@ a { text-decoration: none; color: inherit; }
 .cd-label { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-light); margin-top:0.5rem; }
 .cd-sep { font-size:3rem; color:var(--gold); padding-top:0.6rem; line-height:1; }
 @media(max-width:480px) {
-  .cd-row { gap:0.3rem; flex-wrap:nowrap; }
-  .cd-num { min-width:54px; font-size:clamp(1.5rem,6vw,2.5rem); padding:0.45rem 0.3rem; border-radius:10px; }
-  .cd-sep { font-size:1.6rem; padding-top:0.2rem; }
-  .cd-label { font-size:0.55rem; letter-spacing:0.1em; }
+  .cd-row { gap:0.2rem; flex-wrap:nowrap; }
+  .cd-num { min-width:unset; width:14vw; font-size:6vw; padding:0.4rem 0.2rem; border-radius:8px; }
+  .cd-sep { font-size:1.2rem; padding-top:0.15rem; }
+  .cd-label { font-size:0.48rem; letter-spacing:0.07em; }
 }
 
 /* ============================================================
