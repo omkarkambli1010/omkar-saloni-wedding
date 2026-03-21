@@ -9,6 +9,7 @@ const raleway = Raleway({ weight: ["300","400","500","600","700"], subsets: ["la
 const SITE_URL = "https://omkarsaloniweddinginvite.netlify.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Omkar & Saloni Wedding Invitation | April 19, 2026 · Mumbai",
   description: "You are cordially invited to celebrate the wedding of Omkar Kambli and Saloni Bagkar on Sunday, April 19, 2026 at Shri Laxmashi Nappu Hall, Matunga, Mumbai, Maharashtra.",
   keywords: ["Omkar Saloni wedding", "Omkar Kambli", "Saloni Bagkar", "wedding invitation", "Mumbai wedding 2026", "Matunga wedding", "Kambli Bagkar wedding", "April 2026 wedding"],
@@ -20,12 +21,6 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Omkar & Saloni Wedding",
     locale: "en_IN",
-    images: [{
-      url: `${SITE_URL}/opengraph-image`,
-      width: 1200,
-      height: 630,
-      alt: "Omkar & Saloni Wedding Invitation",
-    }],
   },
   twitter: {
     card: "summary_large_image",
