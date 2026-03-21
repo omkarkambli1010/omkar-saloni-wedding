@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Couple() {
@@ -16,16 +15,8 @@ export default function Couple() {
         <div className="couple-grid">
           <ScrollReveal delay={0.1}>
             <div className="person-card">
-              <div className="person-photo-wrap">
-                <Image
-                  src="/images/omkar.jpeg"
-                  alt="Omkar Kambli — Groom"
-                  fill
-                  sizes="150px"
-                  className="person-photo-img"
-                  style={{ objectPosition:"center 18%" }}
-                />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/omkar.jpeg" alt="Omkar Kambli — Groom" className="person-photo" style={{ objectPosition:"center 18%" }} />
               <p className="person-role">Groom</p>
               <h3 className="person-name" style={{ fontFamily:"var(--font-great-vibes)" }}>Omkar</h3>
               <div className="person-family" style={{ fontFamily:"var(--font-cormorant)" }}>
@@ -50,16 +41,8 @@ export default function Couple() {
 
           <ScrollReveal delay={0.3}>
             <div className="person-card">
-              <div className="person-photo-wrap">
-                <Image
-                  src="/images/saloni.jpeg"
-                  alt="Saloni Bagkar — Bride"
-                  fill
-                  sizes="150px"
-                  className="person-photo-img"
-                  style={{ objectPosition:"center 20%" }}
-                />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/saloni.jpeg" alt="Saloni Bagkar — Bride" className="person-photo" style={{ objectPosition:"center 20%" }} />
               <p className="person-role">Bride</p>
               <h3 className="person-name" style={{ fontFamily:"var(--font-great-vibes)" }}>Saloni</h3>
               <div className="person-family" style={{ fontFamily:"var(--font-cormorant)" }}>
