@@ -33,13 +33,13 @@ export default function Countdown() {
       <p className="cd-title" style={{ fontFamily:"var(--font-great-vibes)" }}>Counting Down to the Big Day</p>
       <div className="cd-row">
         {items.map((item, i) => (
-          <>
-            <div className="cd-item" key={item.label}>
+          <div key={item.label} style={{ display:"contents" }}>
+            <div className="cd-item">
               <span className="cd-num" style={{ fontFamily:"var(--font-cormorant)" }}>{item.val}</span>
               <p className="cd-label">{item.label}</p>
             </div>
-            {i < 3 && <span className="cd-sep" key={`sep-${i}`} style={{ fontFamily:"var(--font-cormorant)" }}>:</span>}
-          </>
+            {i < 3 && <span className="cd-sep" style={{ fontFamily:"var(--font-cormorant)" }}>:</span>}
+          </div>
         ))}
       </div>
     </div>
