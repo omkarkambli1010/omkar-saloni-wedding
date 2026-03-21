@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
       <a href="#hero" className="nav-logo">
-        <LogoSVG size={52} color="#C9A96E" textColor="#7A3040" />
+        <LogoSVG size={52} color="#C9A96E" />
       </a>
       <ul className={`nav-links${open ? " open" : ""}`}>
         {links.map((l) => (

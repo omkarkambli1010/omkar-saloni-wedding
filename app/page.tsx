@@ -20,7 +20,7 @@ export default function Home() {
     <>
       {!opened && <OpeningScreen onOpen={() => setOpened(true)} />}
       {opened && <Petals />}
-      {opened && <MusicButton />}
+      <MusicButton />
       <Navbar />
       <main>
         <Hero />

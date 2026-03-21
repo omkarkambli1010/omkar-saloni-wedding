@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-logo-wrap">
-        <LogoSVG size={100} color="#C9A96E" textColor="#f5e8d0" />
+        <LogoSVG size={100} color="#C9A96E" />
       </div>
       <p className="footer-quote" style={{ fontFamily:"var(--font-cormorant)" }}>Two hearts, one beautiful journey - April 19, 2026</p>
       <div className="footer-line" />

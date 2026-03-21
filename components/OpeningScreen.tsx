@@ -31,7 +31,7 @@ export default function OpeningScreen({ onOpen }: Props) {
         <span className="open-om">✦ ॐ ✦</span>
         <p className="open-tag" style={{ fontFamily:"var(--font-raleway)" }}>श्री गणेशाय नमः · A Wedding Invitation</p>
         <div className="open-logo-wrap">
-          <LogoSVG size={160} color="#C9A96E" textColor="#7A3040" />
+          <LogoSVG size={160} color="#C9A96E" />
         </div>
         <p className="open-date" style={{ fontFamily:"var(--font-cormorant)" }}>Sunday · April 19, 2026 · Mumbai</p>
         <button className="open-btn" style={{ fontFamily:"var(--font-raleway)" }} onClick={handleOpen}>

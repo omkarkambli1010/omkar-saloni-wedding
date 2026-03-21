@@ -5,14 +5,31 @@ export default function MusicButton() {
   const [muted, setMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Autoplay as soon as component mounts (fires after user taps "Open Invitation")
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
     a.volume = 0.55;
-    a.play().catch(() => {
-      // Autoplay blocked — user can tap the button manually
-    });
+
+    // Try immediate autoplay
+    const tryPlay = () => a.play().catch(() => {});
+    tryPlay();
+
+    // Fallback: play on first user gesture if autoplay was blocked
+    const onGesture = () => {
+      if (a.paused) tryPlay();
+      document.removeEventListener("click", onGesture, true);
+      document.removeEventListener("touchstart", onGesture, true);
+      document.removeEventListener("keydown", onGesture, true);
+    };
+    document.addEventListener("click", onGesture, true);
+    document.addEventListener("touchstart", onGesture, true);
+    document.addEventListener("keydown", onGesture, true);
+
+    return () => {
+      document.removeEventListener("click", onGesture, true);
+      document.removeEventListener("touchstart", onGesture, true);
+      document.removeEventListener("keydown", onGesture, true);
+    };
   }, []);
 
   function toggleMute() {
@@ -20,7 +37,6 @@ export default function MusicButton() {
     if (!a) return;
     if (muted) {
       a.muted = false;
-      // If it was paused due to a previous block, try resuming
       if (a.paused) a.play().catch(() => {});
       setMuted(false);
     } else {
