@@ -146,6 +146,7 @@ a { text-decoration: none; color: inherit; }
 .open-tag { font-size:0.75rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(237,217,163,0.7); margin-bottom:1.25rem; }
 .open-names { font-size:clamp(3.5rem,12vw,6rem); color:var(--white); line-height:1.15; text-shadow:0 0 60px rgba(201,169,110,0.35); margin-bottom:0.25rem; }
 .open-amp { font-size:0.45em; color:var(--gold); display:block; line-height:1.2; }
+.open-logo-wrap { display:flex; justify-content:center; margin:0.5rem auto 1rem; }
 .open-date { font-size:clamp(0.95rem,2.5vw,1.2rem); color:var(--gold-light); letter-spacing:0.15em; margin-bottom:2.5rem; }
 .open-btn {
   position:relative; overflow:hidden; background:transparent;
@@ -310,7 +311,9 @@ a { text-decoration: none; color: inherit; }
    EVENTS
 ============================================================ */
 .events-section { background:linear-gradient(180deg,var(--ivory) 0%,var(--blush) 100%); padding:5rem 1.5rem; }
-.events-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.5rem; margin-top:3rem; }
+.events-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:3rem; }
+@media (max-width:640px) { .events-grid { grid-template-columns:1fr; } }
+@media (min-width:1100px) { .events-grid { grid-template-columns:repeat(4,1fr); } }
 .ev-card { background:var(--white); border-radius:22px; padding:2rem 1.75rem; box-shadow:0 6px 28px var(--shadow-dark); border:1px solid var(--gold-light); position:relative; overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; }
 .ev-card:hover { transform:translateY(-6px); box-shadow:0 14px 40px rgba(201,169,110,0.22); }
 .ev-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; }
@@ -441,6 +444,7 @@ a { text-decoration: none; color: inherit; }
    FOOTER
 ============================================================ */
 .site-footer { background:linear-gradient(145deg,#1C0F0A 0%,#2C1810 100%); padding:4.5rem 2rem 2.5rem; text-align:center; }
+.footer-logo-wrap { display:flex; justify-content:center; margin-bottom:1.5rem; }
 .footer-monogram { font-size:3.5rem; color:var(--gold); margin-bottom:0.25rem; }
 .footer-quote { font-style:italic; font-size:0.95rem; color:rgba(255,255,255,0.45); margin-bottom:2.5rem; }
 .footer-line { width:100px; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:1.75rem auto; }

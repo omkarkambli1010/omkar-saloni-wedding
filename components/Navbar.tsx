@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import LogoSVG from "./LogoSVG";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,10 +22,8 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
-      <a href="#hero" className="nav-logo royal-logo">
-        <span className="royal-logo-crown">♛ Est. 2026 ♛</span>
-        <span className="royal-logo-names">Omkar <span className="royal-logo-sep">✦</span> Saloni</span>
-        <span className="royal-logo-tagline">— Together Forever —</span>
+      <a href="#hero" className="nav-logo">
+        <LogoSVG size={52} color="#C9A96E" textColor="#7A3040" />
       </a>
       <ul className={`nav-links${open ? " open" : ""}`}>
         {links.map((l) => (
