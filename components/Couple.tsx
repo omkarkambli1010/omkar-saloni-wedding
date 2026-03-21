@@ -42,7 +42,7 @@ export default function Couple() {
           <ScrollReveal delay={0.3}>
             <div className="person-card">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://picsum.photos/seed/saloni-bride/300/300" alt="Saloni" className="person-photo" />
+              <img src="/images/saloni.jpeg" alt="Saloni" className="person-photo" style={{ objectPosition: "center 20%" }} />
               <p className="person-role">Bride</p>
               <h3 className="person-name" style={{ fontFamily:"var(--font-great-vibes)" }}>Saloni</h3>
               <div className="person-family" style={{ fontFamily:"var(--font-cormorant)" }}>

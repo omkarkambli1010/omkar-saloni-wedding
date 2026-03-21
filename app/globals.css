@@ -284,7 +284,8 @@ a { text-decoration: none; color: inherit; }
 .person-card { background:var(--white); border-radius:24px; padding:2.5rem 2rem; text-align:center; box-shadow:0 10px 40px var(--shadow-dark); border:1px solid var(--gold-light); position:relative; overflow:hidden; transition:transform 0.35s; }
 .person-card:hover { transform:translateY(-6px); }
 .person-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(to right,var(--maroon),var(--gold),var(--maroon)); }
-.person-photo { width:130px; height:130px; border-radius:50%; border:4px solid var(--gold); margin:0 auto 1.5rem; object-fit:cover; box-shadow:0 6px 25px var(--shadow); }
+.person-photo { width:150px; height:150px; border-radius:50%; border:4px solid var(--gold); margin:0 auto 1.5rem; object-fit:cover; box-shadow:0 0 0 6px rgba(201,169,110,0.15), 0 8px 32px rgba(201,169,110,0.3); filter:brightness(1.06) contrast(1.05) saturate(1.12); transition:transform 0.4s ease, box-shadow 0.4s ease; }
+.person-card:hover .person-photo { transform:scale(1.06); box-shadow:0 0 0 8px rgba(201,169,110,0.25), 0 12px 40px rgba(201,169,110,0.45); }
 .person-role { font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:0.5rem; font-weight:600; }
 .person-name { font-size:2.4rem; color:var(--maroon); margin-bottom:1rem; }
 .person-family { font-size:0.98rem; color:var(--text-light); line-height:1.7; }
