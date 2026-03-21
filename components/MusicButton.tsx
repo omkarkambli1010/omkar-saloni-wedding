@@ -9,9 +9,10 @@ export default function MusicButton() {
     const a = audioRef.current;
     if (!a) return;
     a.volume = 0.55;
+    a.currentTime = 71; // start at 1:11
 
     // Try immediate autoplay
-    const tryPlay = () => a.play().catch(() => {});
+    const tryPlay = () => { a.currentTime = 71; a.play().catch(() => {}); };
     tryPlay();
 
     // Fallback: play on first user gesture if autoplay was blocked
