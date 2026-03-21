@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
+import dynamic from "next/dynamic";
 import OpeningScreen from "@/components/OpeningScreen";
 import Petals from "@/components/Petals";
 import MusicButton from "@/components/MusicButton";
@@ -8,10 +9,15 @@ import Hero from "@/components/Hero";
 import Countdown from "@/components/Countdown";
 import Couple from "@/components/Couple";
 import Story from "@/components/Story";
-import Events from "@/components/Events";
 import Venue from "@/components/Venue";
 import Share from "@/components/Share";
 import Footer from "@/components/Footer";
+
+// Three.js (~500KB) lazy-loaded so it doesn't block initial page render
+const Events = dynamic(() => import("@/components/Events"), {
+  ssr: false,
+  loading: () => <section id="events" style={{ minHeight:"680px", background:"#0D0509" }} />,
+});
 
 export default function Home() {
   const [opened, setOpened] = useState(false);

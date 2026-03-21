@@ -130,18 +130,44 @@ a { text-decoration: none; color: inherit; }
 ============================================================ */
 .opening-screen {
   position:fixed; inset:0; z-index:9999;
-  background:linear-gradient(145deg,#130709 0%,#2E0E18 40%,#6B1A2A 75%,#3A0D16 100%);
-  display:flex; align-items:center; justify-content:center;
-  transition:opacity 0.9s ease; overflow:hidden;
+  overflow:hidden;
 }
-.opening-screen.closing { opacity:0; pointer-events:none; }
+/* Curtain panels */
+.curtain {
+  position:absolute; top:0; height:100%; width:50%;
+  z-index:1;
+  transition:transform 1.2s cubic-bezier(0.77,0,0.175,1);
+}
+.curtain-left {
+  left:0;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 18%, rgba(255,255,255,0.03) 40%, rgba(0,0,0,0.12) 70%, rgba(0,0,0,0.28) 100%),
+    linear-gradient(145deg,#130709 0%,#2E0E18 40%,#6B1A2A 75%,#3A0D16 100%);
+  border-right:1px solid rgba(201,169,110,0.3);
+  box-shadow:inset -24px 0 48px rgba(0,0,0,0.55);
+}
+.curtain-right {
+  right:0;
+  background:
+    linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 18%, rgba(255,255,255,0.03) 40%, rgba(0,0,0,0.12) 70%, rgba(0,0,0,0.28) 100%),
+    linear-gradient(145deg,#130709 0%,#2E0E18 40%,#6B1A2A 75%,#3A0D16 100%);
+  border-left:1px solid rgba(201,169,110,0.3);
+  box-shadow:inset 24px 0 48px rgba(0,0,0,0.55);
+}
+.opening-screen.closing { pointer-events:none; }
+.opening-screen.closing .curtain-left  { transform:translateX(-100%); }
+.opening-screen.closing .curtain-right { transform:translateX(100%); }
+.opening-screen.closing .open-ring,
+.opening-screen.closing .open-content  { opacity:0; transform:scale(0.94); transition:opacity 0.45s ease, transform 0.5s ease; }
+
 .open-ring {
   position:absolute; border-radius:50%;
   border:1px solid rgba(201,169,110,0.12);
   top:50%; left:50%;
+  z-index:2;
   animation:openRingPulse 6s ease infinite;
 }
-.open-content { text-align:center; padding:2rem 1.5rem; position:relative; z-index:2; animation:fadeInUp 1.2s ease; }
+.open-content { text-align:center; padding:2rem 1.5rem; position:absolute; inset:0; z-index:3; display:flex; flex-direction:column; align-items:center; justify-content:center; animation:fadeInUp 1.2s ease; }
 .open-om { font-size:2rem; color:var(--gold); display:block; margin-bottom:0.75rem; animation:glowPulse 3s ease infinite; }
 .open-tag { font-size:0.75rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(237,217,163,0.7); margin-bottom:1.25rem; }
 .open-names { font-size:clamp(3.5rem,12vw,6rem); color:var(--white); line-height:1.15; text-shadow:0 0 60px rgba(201,169,110,0.35); margin-bottom:0.25rem; }
@@ -284,8 +310,9 @@ a { text-decoration: none; color: inherit; }
 .person-card { background:var(--white); border-radius:24px; padding:2.5rem 2rem; text-align:center; box-shadow:0 10px 40px var(--shadow-dark); border:1px solid var(--gold-light); position:relative; overflow:hidden; transition:transform 0.35s; }
 .person-card:hover { transform:translateY(-6px); }
 .person-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(to right,var(--maroon),var(--gold),var(--maroon)); }
-.person-photo { width:150px; height:150px; border-radius:50%; border:4px solid var(--gold); margin:0 auto 1.5rem; object-fit:cover; box-shadow:0 0 0 6px rgba(201,169,110,0.15), 0 8px 32px rgba(201,169,110,0.3); filter:brightness(1.06) contrast(1.05) saturate(1.12); transition:transform 0.4s ease, box-shadow 0.4s ease; }
-.person-card:hover .person-photo { transform:scale(1.06); box-shadow:0 0 0 8px rgba(201,169,110,0.25), 0 12px 40px rgba(201,169,110,0.45); }
+.person-photo-wrap { position:relative; width:150px; height:150px; border-radius:50%; border:4px solid var(--gold); margin:0 auto 1.5rem; overflow:hidden; box-shadow:0 0 0 6px rgba(201,169,110,0.15), 0 8px 32px rgba(201,169,110,0.3); filter:brightness(1.06) contrast(1.05) saturate(1.12); transition:transform 0.4s ease, box-shadow 0.4s ease; }
+.person-photo-img { object-fit:cover; }
+.person-card:hover .person-photo-wrap { transform:scale(1.06); box-shadow:0 0 0 8px rgba(201,169,110,0.25), 0 12px 40px rgba(201,169,110,0.45); }
 .person-role { font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:0.5rem; font-weight:600; }
 .person-name { font-size:2.4rem; color:var(--maroon); margin-bottom:1rem; }
 .person-family { font-size:0.98rem; color:var(--text-light); line-height:1.7; }
