@@ -9,27 +9,28 @@ export default function MusicButton() {
     const a = audioRef.current;
     if (!a) return;
     a.volume = 0.55;
-    a.currentTime = 71; // start at 1:11
 
-    // Try immediate autoplay
-    const tryPlay = () => { a.currentTime = 71; a.play().catch(() => {}); };
-    tryPlay();
+    // Seek to 1:11 after play() resolves (required on iOS — seek before play is ignored)
+    const startFrom71 = () =>
+      a.play()
+        .then(() => { a.currentTime = 71; })
+        .catch(() => {});
 
-    // Fallback: play on first user gesture if autoplay was blocked
-    const onGesture = () => {
-      if (a.paused) tryPlay();
-      document.removeEventListener("click", onGesture, true);
-      document.removeEventListener("touchstart", onGesture, true);
-      document.removeEventListener("keydown", onGesture, true);
+    // Try immediate autoplay (works on desktop/Android)
+    startFrom71();
+
+    // Mobile fallback: unlock audio on first touch/click
+    const unlock = () => {
+      if (a.paused) startFrom71();
+      document.removeEventListener("touchstart", unlock, true);
+      document.removeEventListener("click", unlock, true);
     };
-    document.addEventListener("click", onGesture, true);
-    document.addEventListener("touchstart", onGesture, true);
-    document.addEventListener("keydown", onGesture, true);
+    document.addEventListener("touchstart", unlock, true);
+    document.addEventListener("click", unlock, true);
 
     return () => {
-      document.removeEventListener("click", onGesture, true);
-      document.removeEventListener("touchstart", onGesture, true);
-      document.removeEventListener("keydown", onGesture, true);
+      document.removeEventListener("touchstart", unlock, true);
+      document.removeEventListener("click", unlock, true);
     };
   }, []);
 
@@ -38,7 +39,7 @@ export default function MusicButton() {
     if (!a) return;
     if (muted) {
       a.muted = false;
-      if (a.paused) a.play().catch(() => {});
+      if (a.paused) a.play().then(() => { a.currentTime = 71; }).catch(() => {});
       setMuted(false);
     } else {
       a.muted = true;
@@ -48,7 +49,7 @@ export default function MusicButton() {
 
   return (
     <>
-      <audio ref={audioRef} loop>
+      <audio ref={audioRef} loop preload="auto">
         <source src="/music/aaj-sajeya.mp3" type="audio/mpeg" />
       </audio>
       <button

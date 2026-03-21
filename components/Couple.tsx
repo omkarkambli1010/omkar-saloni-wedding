@@ -16,7 +16,7 @@ export default function Couple() {
           <ScrollReveal delay={0.1}>
             <div className="person-card">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://picsum.photos/seed/omkar-groom/300/300" alt="Omkar" className="person-photo" />
+              <img src="/images/omkar.jpeg" alt="Omkar" className="person-photo" />
               <p className="person-role">Groom</p>
               <h3 className="person-name" style={{ fontFamily:"var(--font-great-vibes)" }}>Omkar</h3>
               <div className="person-family" style={{ fontFamily:"var(--font-cormorant)" }}>
