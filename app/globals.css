@@ -261,7 +261,7 @@ a { text-decoration: none; color: inherit; }
 .nav-backdrop.visible { opacity:1; pointer-events:auto; }
 @media(max-width:780px) {
   .nav-links { position:fixed; inset:0 0 0 auto; width:280px; background:var(--dark); flex-direction:column; justify-content:center; gap:2rem; transform:translateX(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1); padding:2rem; z-index:200; }
-  .nav-links.open { transform:translateX(0); }
+  .nav-links.open { transform:translateX(0); height:100%; }
   .nav-links a { color:var(--gold-light) !important; font-size:1rem; }
   .hamburger { display:flex; }
 }
