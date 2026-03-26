@@ -13,34 +13,28 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (open) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
-    } else {
-      const scrollY = parseFloat(document.body.style.top || "0") * -1;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      window.scrollTo(0, scrollY);
-    }
+    if (!open) return;
+    const prevent = (e: TouchEvent) => e.preventDefault();
+    document.addEventListener("touchmove", prevent, { passive: false });
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
+      document.removeEventListener("touchmove", prevent);
+      document.body.style.overflow = "";
     };
   }, [open]);
 
   const links = [
-    { href: "#story",   label: "Story" },
-    { href: "#events",  label: "Events" },
-    { href: "#venue",   label: "Venue" },
+    { href: "#story",  label: "Story" },
+    { href: "#events", label: "Events" },
+    { href: "#venue",  label: "Venue" },
   ];
 
   return (
     <>
-      {open && <div className="nav-backdrop" onClick={() => setOpen(false)} />}
+      <div
+        className={`nav-backdrop${open ? " visible" : ""}`}
+        onClick={() => setOpen(false)}
+      />
       <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
         <a href="#hero" className="nav-logo">
           <LogoSVG size={52} color="#C9A96E" />
