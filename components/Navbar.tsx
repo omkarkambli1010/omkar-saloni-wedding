@@ -12,6 +12,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   const links = [
     { href: "#story",   label: "Story" },
     { href: "#events",  label: "Events" },
@@ -19,20 +24,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
-      <a href="#hero" className="nav-logo">
-        <LogoSVG size={52} color="#C9A96E" />
-      </a>
-      <ul className={`nav-links${open ? " open" : ""}`}>
-        {links.map((l) => (
-          <li key={l.href}>
-            <a href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
-          </li>
-        ))}
-      </ul>
-      <button className="hamburger" onClick={() => setOpen((v) => !v)} aria-label="Menu">
-        <span /><span /><span />
-      </button>
-    </nav>
+    <>
+      {open && <div className="nav-backdrop" onClick={() => setOpen(false)} />}
+      <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
+        <a href="#hero" className="nav-logo">
+          <LogoSVG size={52} color="#C9A96E" />
+        </a>
+        <ul className={`nav-links${open ? " open" : ""}`}>
+          {links.map((l) => (
+            <li key={l.href}>
+              <a href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
+            </li>
+          ))}
+        </ul>
+        <button className="hamburger" onClick={() => setOpen((v) => !v)} aria-label="Menu">
+          <span /><span /><span />
+        </button>
+      </nav>
+    </>
   );
 }
