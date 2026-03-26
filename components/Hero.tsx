@@ -21,9 +21,6 @@ export default function Hero() {
           <p className="small">Matunga, Mumbai, Maharashtra</p>
         </div>
         <p className="hero-caption" style={{ fontFamily:"var(--font-cormorant)" }}>&ldquo;Two souls, one love — an eternal journey begins&rdquo;</p>
-        <div className="hero-actions">
-          <a href="#events" className="btn-gold"><i className="fas fa-heart" /> View Events</a>
-        </div>
       </div>
 
       <div className="scroll-hint">
